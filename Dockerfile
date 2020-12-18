@@ -1,9 +1,7 @@
 FROM node:13.14.0
 
-ENV MALLET_PORT=8546
-ENV MALLET_HOST=127.0.0.1
 ARG mallet_version=bf25d4f565a75428a1bf81f8a30d83e2f13b37c7
-ENV MALLET_Version=${mallet_version}
+ENV MALLET_VERSION=${mallet_version}
 
 ENV PATH="/root/.nvm/versions/node/v10.16.3/bin/:${PATH}"
 
@@ -15,7 +13,7 @@ RUN \
     nvm --version && \
     git clone https://github.com/input-output-hk/mallet && \    
     cd mallet/ && \
-    git checkout ${MALLET_Version} &&\
+    git checkout ${MALLET_VERSION} &&\
     cat .nvmrc && \
     nvm install 10.16.3 && \
     nvm use && \
