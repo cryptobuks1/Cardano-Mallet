@@ -5,6 +5,8 @@ ENV MALLET_HOST=127.0.0.1
 ARG mallet_version=bf25d4f565a75428a1bf81f8a30d83e2f13b37c7
 ENV MALLET_Version=${mallet_version}
 
+ENV PATH="/root/.nvm/versions/node/v10.16.3/bin/:${PATH}"
+
 # Installation following https://developers.cardano.org/en/virtual-machines/kevm/getting-started/mallet-end-to-end/
 RUN \
     curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash && \
@@ -23,5 +25,9 @@ RUN \
     solcjs --version
 
 WORKDIR /mallet
+
+COPY ./myContract.sol ./
+
+RUN solcjs --bin --abi --base-path . ./myContract.sol
 
 ENTRYPOINT ["./mallet"]
