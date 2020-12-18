@@ -10,3 +10,13 @@ The following command starts and connects mallet to the KEVM Devnet. The Hello W
 docker run -ti --rm ststolz/cardano-mallet:latest kevm -d ./data
 ```
 
+Tu execute the test scripts from the [input-output-hk
+/
+mallet](https://github.com/input-output-hk/mallet) Repo execute following command.
+
+```bash
+docker run -ti --rm --entrypoint node ststolz/cardano-mallet:latest "test/basic-kevm.js"
+```
+
+
+
