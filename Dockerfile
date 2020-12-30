@@ -26,6 +26,6 @@ WORKDIR /mallet
 
 COPY ./myContract.sol ./
 
-RUN solcjs --bin --abi --base-path . ./myContract.sol
+RUN solcjs --optimize --bin --abi --base-path . ./myContract.sol
 
 ENTRYPOINT ["./mallet"]
